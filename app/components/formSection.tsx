@@ -1,0 +1,183 @@
+"use client";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import CustomInput from "./customInput";
+import CustomSelect from "./customSelect";
+import Button from "./button";
+
+
+
+interface FormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  street: string;
+  city: string;
+  state: string;
+  country: string;
+  service: string;
+  date: string;
+  message: string;
+}
+
+export default function FormSection() {
+     const [formData, setFormData] = useState<FormData>({
+       fullName: "",
+       email: "",
+       phone: "",
+       street: "",
+       city: "",
+       state: "",
+       country: "",
+       service: "",
+       date: "",
+       message: "",
+     });
+     const [service, setService] = useState("");
+     const [country, setCountry] = useState("");
+
+     const serviceOptions = [
+       { value: "Skilled Nursing Care", label: "Skilled Nursing Care" },
+       { value: "Elderly Care", label: "Elderly Care" },
+       { value: "Post-Surgery Care", label: "Post-Surgery Care" },
+       {
+         value: "Chronic Disease Management",
+         label: "Chronic Disease Management",
+       },
+       { value: "Personal Care Assistance", label: "Personal Care Assistance" },
+       { value: "Pediatric Home Care", label: "Pediatric Home Care" },
+     ];
+     const countryOptions = [
+       { value: "United State", label: "United State" },
+       { value: "Nigeria", label: "Nigeria" },
+     ];
+
+     const handleChange = (
+       e: ChangeEvent<
+         HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+       >,
+     ) => {
+       const { name, value } = e.target;
+
+       setFormData((prev) => ({
+         ...prev,
+         [name]: value,
+       }));
+     };
+
+     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+       e.preventDefault();
+       console.log("Form Submitted:", formData);
+     };
+    return (
+      <>
+        <form onSubmit={handleSubmit} className="space-y-4 mt-6 lg:mt-0">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+            {/* Full Name */}
+            <div className="flex flex-col">
+              <CustomInput
+                label="Full name"
+                placeholder="Enter your Full Name"
+                required={true}
+              />
+            </div>
+            {/* Email */}
+            <div>
+              <CustomInput
+                label="Email"
+                placeholder="Enter your Email Address"
+                required={true}
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+            {/* phone */}
+            <div className="flex flex-col">
+              <CustomInput
+                label="Phone Number"
+                placeholder="Enter your Phone Number"
+                required={true}
+              />
+            </div>
+            {/* Street Address */}
+            <div>
+              <CustomInput
+                label="Street Address"
+                placeholder="Enter your Street Address"
+                required={true}
+              />
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+            {/* city */}
+            <div className="flex flex-col">
+              <CustomInput
+                label="City"
+                placeholder="Enter your City"
+                required={true}
+              />
+            </div>
+            {/* Street/Province */}
+            <div>
+              <CustomInput
+                label="State/Province"
+                placeholder="Enter your State/Province"
+                required={true}
+              />
+            </div>
+          </div>
+
+          {/* Country */}
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+            <div>
+              <CustomSelect
+                label="Select Country"
+                value={country}
+                options={countryOptions}
+                onChange={(val) => setCountry(val)}
+                required={true}
+              />
+            </div>
+
+            {/* Service */}
+            <div>
+              <CustomSelect
+                label="Select Service"
+                value={service}
+                options={serviceOptions}
+                onChange={(val) => setService(val)}
+                required={true}
+              />
+            </div>
+          </div>
+
+          {/* Date */}
+          <div>
+            <CustomInput label="Pick a Date" type="date" required={true} />
+          </div>
+
+          {/* Message */}
+
+          <div className="flex flex-col md:col-span-2">
+            <label className="text-[12px] font-medium text-gray-900 mb-1">
+              Your Message
+            </label>
+
+            <textarea
+              name="message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="How can we help you?"
+              className="focus:border-[2px] border-[1px] border-[#d8dadc] p-2 focus:border-[#559939] outline-none resize-none rounded-[8px] hover:border-[#559939]"
+            />
+          </div>
+
+          {/* Submit */}
+          <div className="mt-8">
+            <Button text="Submit Request" className="w-full md:w-[200px]" />
+          </div>
+        </form>
+      </>
+    );
+}
