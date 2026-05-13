@@ -51,14 +51,14 @@ export default function Footer() {
               <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-4 text-test-white text-sm">
                 <li>
-                  <Link href="/" className="hover:text-[#559939] transition">
+                  <Link href="/" className="hover:text-black transition">
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/about"
-                    className="hover:text-[#559939] transition"
+                    className="hover:text-black transition"
                   >
                     About Us
                   </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="hover:text-[#559939] transition"
+                    className="hover:text-black transition"
                   >
                     Services
                   </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:text-[#559939] transition"
+                    className="hover:text-black transition"
                   >
                     Contact Us
                   </Link>

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Banner from "../components/ui/banner";
 import Title from "../components/title";
@@ -8,14 +7,6 @@ import FormSection from "../components/formSection";
 import Navbar from "../components/ui/navbar";
 
 const Contact = () => {
-  const [service, setService] = React.useState("");
-
-  const services = [
-    { value: "nursing", label: "Companionship" },
-    { value: "elderly", label: "Skilled Nursing" },
-    { value: "surgery", label: "Dementia Care" },
-  ];
-
   return (
     <>
       <Navbar initialTransparent={false} />

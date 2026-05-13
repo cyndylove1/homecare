@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/ui/footer";
-import Navbar from "./components/ui/navbar";
+
 
 const jakarta = Plus_Jakarta_Sans({
   weight: ["200", "300", "400", "500", "600", "700", "800"],

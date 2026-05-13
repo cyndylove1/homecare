@@ -1,4 +1,6 @@
+"use client";
 import { ImPlus } from "react-icons/im";
+import { motion } from "framer-motion";
 import Button from "../button";
 import Navbar from "./navbar";
 import Link from "next/link";
@@ -39,11 +41,20 @@ const Hero = () => {
         </div>
 
         {/* Right Image Column */}
-        <div className="relative flex justify-center lg:justify-end hidden md:flex">
+        <div className="relative hidden justify-center md:flex lg:justify-end">
           {/* Medical Plus */}
-          <div className="absolute top-[-5rem] right-[25%] z-0 h-24 w-24 rounded-full border-4 border-dashed border-black flex items-center justify-center opacity-80 hidden lg:flex">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute top-[-5rem] right-[25%] z-0 hidden h-24 w-24 items-center justify-center rounded-full border-4 border-dashed border-black opacity-80 lg:flex"
+          >
             <ImPlus size={34} className="text-black" />
-          </div>
+          </motion.div>
+
           {/* image*/}
           <div className="relative z-20 mt-12 lg:mt-0">
             {/* Gradient Background Image */}
@@ -54,24 +65,33 @@ const Hero = () => {
                   "radial-gradient(circle at center, #048b7d 0%, #8fffd2 60%, transparent 100%)",
               }}
             />
+
             <img
               src="/assets/doctor2.png"
               alt="CareOnline Medical Team"
               className="relative z-10 w-full max-w-2xl object-contain drop-shadow-2xl"
             />
 
-            {/*  Semi-Circle */}
+            {/* Semi-Circle */}
             <div className="absolute bottom-0 right-0 h-[80%] w-full rounded-t-full bg-[#048b7d]/20 -z-10" />
 
-            {/* Floating Badge*/}
-            <div className="absolute bottom-[15%] left-0 z-30 flex items-center gap-4 rounded-xl bg-white/90 p-6 shadow-2xl backdrop-blur-sm border border-white">
+            {/* Floating Badge */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-[15%] left-0 z-30 flex items-center gap-4 rounded-xl border border-white bg-white/90 p-6 shadow-2xl backdrop-blur-sm"
+            >
               <div className="space-y-1">
                 <p className="text-3xl font-black text-[#1E293B]">50+</p>
                 <p className="text-sm font-bold text-gray-500">
                   Expert Doctors
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </main>

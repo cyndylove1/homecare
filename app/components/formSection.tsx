@@ -35,17 +35,13 @@ export default function FormSection() {
      const [service, setService] = useState("");
      const [country, setCountry] = useState("");
 
-     const serviceOptions = [
-       { value: "Skilled Nursing Care", label: "Skilled Nursing Care" },
-       { value: "Elderly Care", label: "Elderly Care" },
-       { value: "Post-Surgery Care", label: "Post-Surgery Care" },
-       {
-         value: "Chronic Disease Management",
-         label: "Chronic Disease Management",
-       },
-       { value: "Personal Care Assistance", label: "Personal Care Assistance" },
-       { value: "Pediatric Home Care", label: "Pediatric Home Care" },
-     ];
+  const serviceOptions = [
+    { value: "companionship", label: "Companionship" },
+    { value: "skilled Nursing", label: "Skilled Nursing" },
+    { value: "dementia Care", label: "Dementia Care" },
+    { value: "physical Therapy", label: "Physical Therapy" },
+    { value: "palliative Care", label: "Palliative Care" },
+  ];
      const countryOptions = [
        { value: "United State", label: "United State" },
        { value: "Nigeria", label: "Nigeria" },
