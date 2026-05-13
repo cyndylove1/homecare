@@ -27,7 +27,6 @@ export default function Navbar({ initialTransparent = true }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  
   const isWhiteBg = isScrolled || !initialTransparent;
 
   const navLinks = [
@@ -78,7 +77,9 @@ export default function Navbar({ initialTransparent = true }: NavbarProps) {
 
         {/* Button */}
         <div className="hidden lg:block">
-          <Button text="Book Consultation" />
+          <Link href="/contact">
+            <Button text="Book Consultation" />
+          </Link>
         </div>
 
         {/* Mobile */}
@@ -117,7 +118,9 @@ export default function Navbar({ initialTransparent = true }: NavbarProps) {
           })}
 
           <div className="pt-2">
-            <Button text="Book Consultation" />
+            <Link href="/contact">
+              <Button text="Book Consultation" />
+            </Link>
           </div>
         </div>
       </div>
